@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block title%} ASCII_ART {% endblock %}
+{% block main %}
+  <script src="../static/js/index.js"></script>
+  <div id="display">
+    <img id="image-display" src="" alt="">
+    {% if err %} err {% endif %}
+  </div>
+  <div id="form-field">
+  <form action="{{ url_for('upload_image') }}" method="post" enctype=multipart/form-data>
+    <input type="file" multiple="false" name="image_disc" id="image" />
+    <input type="text" name="image_web">
+    <button type="button" id="optionsBtn">Options</button>
+    <div id="options">
+      <label for="cols">Number of columns</label>
+      <input type="number" name="cols" id="cols" value="128">
+      <label for="scale">Scale</label>
+      <input type="text" name="scale" id="scale" value="0.23">
+      <label for="invert">Invert colors</label>
+      <input type="checkbox" name="invert" id="invert">
+      <label for="gscale">Gray scale</label>
+      <div id="gscale">
+        <input type="radio" name="gscaler" id="better" value="1" checked>
+        <label for="better">better</label>
+        <input type="radio" name="gscaler" id="worse" value="0">
+        <label for="worse">worse</label>
+        </div>
+        </div>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+{% endblock %}

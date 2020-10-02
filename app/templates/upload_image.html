@@ -1,0 +1,15 @@
+{% extends "template.html" %} {% block title%} {{ filename }} {% endblock %}
+{%block main %}
+<script src="../static/js/upload_image.js"></script>
+<div id="show-panel">
+  {% if a %}
+  <pre>
+    <span id="result">
+      {% for i in a %}
+        {{ i }}
+      {% endfor %}
+    </span>
+  </pre>
+  {% endif %}
+</div>
+{% endblock %}
